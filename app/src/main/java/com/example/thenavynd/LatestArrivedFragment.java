@@ -3,10 +3,18 @@ package com.example.thenavynd;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.thenavynd.Adapters.ProductAdapter;
+import com.example.thenavynd.Models.Products;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,6 +54,9 @@ public class LatestArrivedFragment extends Fragment {
         return fragment;
     }
 
+    RecyclerView recyclerView;
+    ProductAdapter productAdapter;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +69,29 @@ public class LatestArrivedFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_latest_arrived, container, false);
+        View view = inflater.inflate(R.layout.fragment_latest_arrived, container, false);
+
+        recyclerView = view.findViewById(R.id.latest_arrived_recycler_view);
+        productAdapter = new ProductAdapter(container.getContext());
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(container.getContext(), 2);
+        recyclerView.setLayoutManager(gridLayoutManager);
+
+        productAdapter.setData(getListProducts());
+        recyclerView.setAdapter(productAdapter);
+
+        return view;
+    }
+
+    private List<Products> getListProducts() {
+        List<Products> list = new ArrayList<>();
+        list.add(new Products(1,1,R.drawable.image_1,"Product 1","200000","Cực sịn",13));
+        list.add(new Products(2,2,R.drawable.image_2,"Product 2","200000","Cực sịn",13));
+        list.add(new Products(3,3,R.drawable.image_3,"Product 3","200000","Cực sịn",13));
+        list.add(new Products(4,2,R.drawable.image_4,"Product 4","200000","Cực sịn",13));
+        list.add(new Products(5,3,R.drawable.image_5,"Product 5","200000","Cực sịn",13));
+        list.add(new Products(6,1,R.drawable.image_6,"Product 6","200000","Cực sịn",13));
+
+        return list;
     }
 }
