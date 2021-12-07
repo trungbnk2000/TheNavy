@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:title="Latest Arrived"
+            android:id="@+id/latest_arrived"
+            />
+        <item
+            android:title="Handbags"
+            android:id="@+id/handbags"
+            />
+        <item
+            android:title="Ready-to-wear"
+            android:id="@+id/ready_to_wear"
+            />
+        <item
+            android:title="Accessories"
+            android:id="@+id/accessories"
+            />
+        <item
+            android:title="Shoes"
+            android:id="@+id/shoes"
+            />
+    </group>
+    <item android:title="">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:title="Change Password"
+                    android:id="@+id/change_password"/>
+                <item
+                    android:title="Order History"
+                    android:id="@+id/order_history"/>
+                <item
+                    android:title="Log Out"
+                    android:id="@+id/log_out"/>
+            </group>
+        </menu>
+    </item>
+</menu>

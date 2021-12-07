@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "16127387385",
+    "project_id": "thenavynd",
+    "storage_bucket": "thenavynd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:16127387385:android:ac0fe40d6ec0b39582a428",
+        "android_client_info": {
+          "package_name": "com.example.thenavynd"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "16127387385-n7mm09s4dmn1surnp1edeb7j9nqid20f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCH3bgelyyljYGKEpxoAflXInhjdehuzXo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "16127387385-n7mm09s4dmn1surnp1edeb7j9nqid20f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

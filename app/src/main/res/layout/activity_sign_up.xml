@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/white">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="283dp"
+        android:layout_height="59dp"
+        android:backgroundTint="@color/dark_blue"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/sign_up"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:paddingHorizontal="90dp"
+        android:paddingTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.812"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/dontHave"
+        android:layout_width="220dp"
+        android:layout_height="30dp"
+        android:fontFamily="@font/poppins_light"
+        android:text="@string/sign_up_already_have"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_bias="0.406" />
+
+    <ImageView
+        android:id="@+id/holder1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription=''
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.765"
+        app:srcCompat="@drawable/vector" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="257dp"
+        android:layout_height="39dp"
+        android:ems="10"
+        android:hint="@string/sign_up_password"
+        android:textSize="10sp"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="@+id/holder1"
+        app:layout_constraintEnd_toEndOf="@+id/holder1"
+        app:layout_constraintStart_toStartOf="@+id/holder1"
+        app:layout_constraintTop_toTopOf="@+id/holder1"
+        app:layout_constraintVertical_bias="0.666"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <ImageView
+        android:id="@+id/holder3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription=''
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.454"
+        app:srcCompat="@drawable/vector" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/poppins_bold"
+        android:textSize="10sp"
+        android:text="@string/sign_up_let_me"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/fullName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.222" />
+
+    <EditText
+        android:id="@+id/fullName"
+        android:layout_width="257dp"
+        android:layout_height="39dp"
+        android:ems="10"
+        android:fontFamily="@font/poppins_light"
+        android:textSize="10sp"
+        android:hint="@string/sign_up_full_name"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/holder3"
+        app:layout_constraintEnd_toEndOf="@+id/holder3"
+        app:layout_constraintStart_toStartOf="@+id/holder3"
+        app:layout_constraintTop_toTopOf="@+id/holder3"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <ImageView
+        android:id="@+id/holder4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription=''
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.602"
+        app:srcCompat="@drawable/vector" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="257dp"
+        android:layout_height="39dp"
+        android:ems="10"
+        android:hint="@string/sign_up_email"
+        android:fontFamily="@font/poppins_light"
+        android:textSize="10sp"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="@+id/holder4"
+        app:layout_constraintEnd_toEndOf="@+id/holder4"
+        app:layout_constraintStart_toStartOf="@+id/holder4"
+        app:layout_constraintTop_toTopOf="@+id/holder4"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <ImageView
+        android:id="@+id/holder2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription=''
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.933"
+        app:srcCompat="@drawable/vector" />
+
+    <EditText
+        android:id="@+id/confirm"
+        android:layout_width="257dp"
+        android:layout_height="39dp"
+        android:ems="10"
+        android:hint="@string/sign_up_confirm"
+        android:inputType="textPassword"
+        android:fontFamily="@font/poppins_light"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/holder2"
+        app:layout_constraintEnd_toEndOf="@+id/holder2"
+        app:layout_constraintStart_toStartOf="@+id/holder2"
+        app:layout_constraintTop_toTopOf="@+id/holder2"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/sign_in"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:fontFamily="@font/poppins_light"
+        android:text="@string/sign_in"
+        android:textColor="@color/dark_blue"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/dontHave"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_bias="0.406" />
+
+    <ImageView
+        android:id="@+id/roundThingy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.001"
+        app:srcCompat="@drawable/layout" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/sign_up_welcome"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/holder1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.403" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">TheNavyND</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="intro_shop_with">Shopping with </string>
+    <string name="intro_the_navy">The Navy</string>
+    <string name="intro_paragraph">Influential, innovative and progressive,The Navy
+is reinventing a wholly modern approach to fashion. Under the new vision, The Navy has redefined luxury for the 21st century
+, further reinforcing its position as one of the world’s most desirable fashion houses.</string>
+    <string name="intro_start">Get started</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_in_email">Enter your email</string>
+    <string name="sign_in_password">Enter your password</string>
+    <string name="sign_in_forget">Forgot Password</string>
+    <string name="sign_in_dont_have_acc">Do not have an account?</string>
+    <string name="sign_in_welcome">Welcome Back!</string>
+    <string name="sign_up_welcome">Welcome Player</string>
+    <string name="sign_up_let_me">Let me show you what fashion is!</string>
+    <string name="sign_up_full_name">Enter your full name</string>
+    <string name="sign_up_email">Enter your email</string>
+    <string name="sign_up_password">Enter password</string>
+    <string name="sign_up_confirm">Confirm password</string>
+    <string name="sign_up_register">Register</string>
+    <string name="sign_up_already_have">Already have an account ?</string>
+    <string name="sign_up">Sign up</string>
+</resources>
