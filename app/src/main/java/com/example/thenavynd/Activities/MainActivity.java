@@ -1,7 +1,5 @@
-package com.example.thenavynd;
+package com.example.thenavynd.Activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -11,10 +9,15 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.MenuItem;
 
+import com.example.thenavynd.Fragments.AccessoriesFragment;
+import com.example.thenavynd.Fragments.HandbagsFragment;
+import com.example.thenavynd.Fragments.LatestArrivedFragment;
+import com.example.thenavynd.Fragments.ReadyToWearFragment;
+import com.example.thenavynd.Fragments.ShoesFragment;
+import com.example.thenavynd.R;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -62,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.change_password:
                     break;
                 case R.id.order_history:
+                    Intent intent = new Intent(this, CartActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.log_out:
                     break;

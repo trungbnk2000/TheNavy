@@ -1,17 +1,26 @@
-package com.example.thenavynd;
+package com.example.thenavynd.Fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.thenavynd.Adapters.ProductAdapter;
 import com.example.thenavynd.Models.Products;
+import com.example.thenavynd.R;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.android.gms.tasks.OnCompleteListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +31,8 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class LatestArrivedFragment extends Fragment {
+
+    FirebaseFirestore db;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -77,21 +88,31 @@ public class LatestArrivedFragment extends Fragment {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(container.getContext(), 2);
         recyclerView.setLayoutManager(gridLayoutManager);
 
-        productAdapter.setData(getListProducts());
+        List<Products> list = new ArrayList<>();
+
+        db = FirebaseFirestore.getInstance();
+        db.collection("Products")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Products p = document.toObject(Products.class);
+                                list.add(p);
+                                productAdapter.notifyDataSetChanged();
+                            }
+                        } else {
+                            Toast.makeText(getActivity(), "Error: "+ task.getException(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+        productAdapter.setData(list);
         recyclerView.setAdapter(productAdapter);
 
+        //Log.d("Test", "Size : " + list.size());
+
         return view;
-    }
-
-    private List<Products> getListProducts() {
-        List<Products> list = new ArrayList<>();
-        list.add(new Products(1,1,R.drawable.image_1,"Product 1","200000","Cực sịn",13));
-        list.add(new Products(2,2,R.drawable.image_2,"Product 2","200000","Cực sịn",13));
-        list.add(new Products(3,3,R.drawable.image_3,"Product 3","200000","Cực sịn",13));
-        list.add(new Products(4,2,R.drawable.image_4,"Product 4","200000","Cực sịn",13));
-        list.add(new Products(5,3,R.drawable.image_5,"Product 5","200000","Cực sịn",13));
-        list.add(new Products(6,1,R.drawable.image_6,"Product 6","200000","Cực sịn",13));
-
-        return list;
     }
 }

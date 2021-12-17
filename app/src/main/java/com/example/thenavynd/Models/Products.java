@@ -1,15 +1,17 @@
 package com.example.thenavynd.Models;
 
-public class Products {
+import java.io.Serializable;
+
+public class Products implements Serializable {
     private int id;
     private int categoryId;
-    private int image;
+    private String image;
     private String name;
     private String price;
     private String moTa;
     private int soLuong;
 
-    public Products(int id, int categoryId, int image, String name, String price, String moTa, int soLuong) {
+    public Products(int id, int categoryId, String image, String name, String price, String moTa, int soLuong) {
         this.id = id;
         this.categoryId = categoryId;
         this.image = image;
@@ -17,6 +19,10 @@ public class Products {
         this.price = price;
         this.moTa = moTa;
         this.soLuong = soLuong;
+    }
+
+    public Products(){
+
     }
 
     public int getCategoryId() {
@@ -35,11 +41,11 @@ public class Products {
         this.id = id;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

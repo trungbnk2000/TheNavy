@@ -25,4 +25,10 @@ is reinventing a wholly modern approach to fashion. Under the new vision, The Na
     <string name="sign_up_register">Register</string>
     <string name="sign_up_already_have">Already have an account ?</string>
     <string name="sign_up">Sign up</string>
+    <string-array name="sizes">
+        <item>S</item>
+        <item>M</item>
+        <item>L</item>
+        <item>XL</item>
+    </string-array>
 </resources>

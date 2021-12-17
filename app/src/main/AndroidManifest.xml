@@ -10,16 +10,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TheNavyND">
         <activity
-            android:name=".IntroActivity"
+            android:name=".Activities.OrderActivity"
             android:exported="true" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activities.CartActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.DetailProductActivity"
             android:exported="true" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".Activities.IntroActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activities.LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activities.MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activities.SignUpActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
