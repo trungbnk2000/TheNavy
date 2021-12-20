@@ -1,4 +1,4 @@
-package com.example.thenavynd.Activities;
+package com.example.thenavynd.Controller.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,9 +14,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.thenavynd.Adapters.CartAdapter;
+import com.example.thenavynd.Controller.Adapters.CartAdapter;
 import com.example.thenavynd.Models.Carts;
 import com.example.thenavynd.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -35,6 +36,7 @@ public class CartActivity extends AppCompatActivity {
     FirebaseFirestore db;
     FirebaseAuth auth;
     TextView total;
+    ImageView returnPrevious;
     RecyclerView recyclerView;
     CartAdapter cartAdapter;
     List<Carts> cartsList;
@@ -54,6 +56,7 @@ public class CartActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_view_cart);
         total = findViewById(R.id.total_price_cart);
         order = findViewById(R.id.order_cart);
+        returnPrevious = findViewById(R.id.return_previous_cart);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(CartActivity.this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(cartAdapter);
@@ -87,9 +90,17 @@ public class CartActivity extends AppCompatActivity {
         order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("Test", "Clicked");
                 Intent intent = new Intent(CartActivity.this, OrderActivity.class);
                 intent.putExtra("cartsList", (Serializable) cartsList);
                 startActivity(intent);
+            }
+        });
+
+        returnPrevious.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

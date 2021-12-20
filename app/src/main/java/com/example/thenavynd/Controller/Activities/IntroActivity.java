@@ -1,4 +1,4 @@
-package com.example.thenavynd.Activities;
+package com.example.thenavynd.Controller.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,12 +22,12 @@ public class IntroActivity extends AppCompatActivity {
         getStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switchToMain();
+                switchToLogin();
             }
         });
     }
 
-    private void switchToMain() {
+    private void switchToLogin() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

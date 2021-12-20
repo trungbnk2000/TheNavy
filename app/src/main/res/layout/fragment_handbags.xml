@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    tools:context=".Fragments.HandbagsFragment">
+    tools:context=".Controller.Fragments.HandbagsFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -64,6 +64,19 @@
             app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
             app:layout_constraintVertical_bias="0.039"
             app:srcCompat="@drawable/filter" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/handbags_recycler_view"
+            android:layout_width="383dp"
+            android:layout_height="572dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+            app:layout_constraintVertical_bias="1.0" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

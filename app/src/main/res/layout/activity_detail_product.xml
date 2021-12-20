@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Activities.DetailProductActivity">
+    tools:context=".Controller.Activities.DetailProductActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -18,10 +18,10 @@
 
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/return_previous_detail"
             android:layout_width="35dp"
             android:layout_height="32dp"
-            app:srcCompat="@drawable/menu" />
+            app:srcCompat="@drawable/return_previous" />
 
         <TextView
             android:id="@+id/textView"
@@ -59,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_light"
-            android:text="Ready-to-wear / Product #1"
+            android:text="Product detail"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

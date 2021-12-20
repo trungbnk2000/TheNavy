@@ -26,10 +26,10 @@
         <menu>
             <group android:checkableBehavior="single">
                 <item
-                    android:title="Change Password"
+                    android:title="Order History"
                     android:id="@+id/change_password"/>
                 <item
-                    android:title="Order History"
+                    android:title="Cart"
                     android:id="@+id/order_history"/>
                 <item
                     android:title="Log Out"

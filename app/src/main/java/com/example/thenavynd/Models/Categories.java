@@ -3,14 +3,24 @@ package com.example.thenavynd.Models;
 public class Categories {
     int id;
     String name;
+    String image;
 
-    public Categories(int id, String name) {
+    public Categories(int id, String name, String image) {
         this.id = id;
         this.name = name;
+        this.image = image;
     }
 
     public Categories(){
 
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public int getId() {

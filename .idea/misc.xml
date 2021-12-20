@@ -13,8 +13,10 @@
         <entry key="..\:/Users/trung/AndroidStudioProjects/TheNavyND/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/trung/AndroidStudioProjects/TheNavyND/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/trung/AndroidStudioProjects/TheNavyND/app/src/main/res/layout/activity_order.xml" value="0.1578125" />
+        <entry key="..\:/Users/trung/AndroidStudioProjects/TheNavyND/app/src/main/res/layout/activity_order_history.xml" value="0.18072916666666666" />
         <entry key="..\:/Users/trung/AndroidStudioProjects/TheNavyND/app/src/main/res/layout/activity_sign_up.xml" value="0.33" />
         <entry key="..\:/Users/trung/AndroidStudioProjects/TheNavyND/app/src/main/res/layout/app_bar.xml" value="0.18" />
+        <entry key="..\:/Users/trung/AndroidStudioProjects/TheNavyND/app/src/main/res/layout/category_layout.xml" value="0.16770833333333332" />
         <entry key="..\:/Users/trung/AndroidStudioProjects/TheNavyND/app/src/main/res/layout/fragment_accessories.xml" value="0.20260416666666667" />
         <entry key="..\:/Users/trung/AndroidStudioProjects/TheNavyND/app/src/main/res/layout/fragment_handbags.xml" value="0.20260416666666667" />
         <entry key="..\:/Users/trung/AndroidStudioProjects/TheNavyND/app/src/main/res/layout/fragment_latest_arrived.xml" value="0.20260416666666667" />
@@ -24,6 +26,7 @@
         <entry key="..\:/Users/trung/AndroidStudioProjects/TheNavyND/app/src/main/res/layout/nav_menu.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/trung/AndroidStudioProjects/TheNavyND/app/src/main/res/layout/product_cart.xml" value="0.1953125" />
         <entry key="..\:/Users/trung/AndroidStudioProjects/TheNavyND/app/src/main/res/layout/product_layout.xml" value="0.26268115942028986" />
+        <entry key="..\:/Users/trung/AndroidStudioProjects/TheNavyND/app/src/main/res/layout/product_order_history.xml" value="0.18072916666666666" />
         <entry key="..\:/Users/trung/AndroidStudioProjects/TheNavyND/app/src/main/res/menu/menu.xml" value="0.3625" />
       </map>
     </option>

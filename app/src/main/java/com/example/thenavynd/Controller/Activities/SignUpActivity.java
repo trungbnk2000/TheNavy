@@ -1,4 +1,4 @@
-package com.example.thenavynd.Activities;
+package com.example.thenavynd.Controller.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

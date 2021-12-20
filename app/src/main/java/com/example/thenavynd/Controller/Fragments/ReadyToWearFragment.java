@@ -1,4 +1,4 @@
-package com.example.thenavynd.Fragments;
+package com.example.thenavynd.Controller.Fragments;
 
 import android.os.Bundle;
 
@@ -7,31 +7,33 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.thenavynd.Adapters.ProductAdapter;
+import com.example.thenavynd.Controller.Adapters.ProductAdapter;
 import com.example.thenavynd.Models.Products;
 import com.example.thenavynd.R;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.android.gms.tasks.OnCompleteListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link LatestArrivedFragment#newInstance} factory method to
+ * Use the {@link ReadyToWearFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class LatestArrivedFragment extends Fragment {
-
+public class ReadyToWearFragment extends Fragment {
     FirebaseFirestore db;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -42,8 +44,9 @@ public class LatestArrivedFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private EditText editText;
 
-    public LatestArrivedFragment() {
+    public ReadyToWearFragment() {
         // Required empty public constructor
     }
 
@@ -53,20 +56,21 @@ public class LatestArrivedFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment LatestArrivedFragment.
+     * @return A new instance of fragment ReadyToWearFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static LatestArrivedFragment newInstance(String param1, String param2) {
-        LatestArrivedFragment fragment = new LatestArrivedFragment();
+    public static ReadyToWearFragment newInstance(String param1, String param2) {
+        ReadyToWearFragment fragment = new ReadyToWearFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
-
     RecyclerView recyclerView;
     ProductAdapter productAdapter;
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -77,19 +81,38 @@ public class LatestArrivedFragment extends Fragment {
         }
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_latest_arrived, container, false);
-
-        recyclerView = view.findViewById(R.id.latest_arrived_recycler_view);
+        View view = inflater.inflate(R.layout.fragment_ready_to_wear, container, false);
+        recyclerView = view.findViewById(R.id.ready_to_wear_recycler_view);
         productAdapter = new ProductAdapter(container.getContext());
+        editText = view.findViewById(R.id.editTextTextPersonName);
+        editText.requestFocus();
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                productAdapter.getFilter().filter(editable.toString());
+
+            }
+        });
+
+        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(container.getContext(), 2);
         recyclerView.setLayoutManager(gridLayoutManager);
 
         List<Products> list = new ArrayList<>();
-
         db = FirebaseFirestore.getInstance();
         db.collection("Products")
                 .get()
@@ -99,7 +122,11 @@ public class LatestArrivedFragment extends Fragment {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Products p = document.toObject(Products.class);
-                                list.add(p);
+                                if(p.getCategoryId()==2)
+                                {
+                                    list.add(p);
+                                }
+
                                 productAdapter.notifyDataSetChanged();
                             }
                         } else {
@@ -111,8 +138,10 @@ public class LatestArrivedFragment extends Fragment {
         productAdapter.setData(list);
         recyclerView.setAdapter(productAdapter);
 
-        //Log.d("Test", "Size : " + list.size());
 
         return view;
+
+
+
     }
 }

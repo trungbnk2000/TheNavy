@@ -1,9 +1,11 @@
-package com.example.thenavynd.Activities;
+package com.example.thenavynd.Controller.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.thenavynd.Models.Carts;
@@ -21,6 +23,7 @@ public class OrderActivity extends AppCompatActivity {
 
     FirebaseAuth auth;
     FirebaseFirestore db;
+    ImageView returnPrevious;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +32,16 @@ public class OrderActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+        returnPrevious = findViewById(R.id.return_previous);
 
         List<Carts> cartsList = (List<Carts>) getIntent().getSerializableExtra("cartsList");
+
+        returnPrevious.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         if(cartsList != null && cartsList.size()>0){
             for(Carts c : cartsList){

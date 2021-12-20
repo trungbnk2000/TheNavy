@@ -1,4 +1,4 @@
-package com.example.thenavynd.Activities;
+package com.example.thenavynd.Controller.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,15 +10,17 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.thenavynd.Adapters.ProductAdapter;
+import com.example.thenavynd.Controller.Adapters.ProductAdapter;
 import com.example.thenavynd.Models.Products;
 import com.example.thenavynd.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -29,7 +31,7 @@ import java.util.HashMap;
 public class DetailProductActivity extends AppCompatActivity {
 
     TextView name, id, price, soLuong, moTa, categoryId, countItem;
-    ImageView image, addItem, removeItem,cart;
+    ImageView image, addItem, removeItem, cart, returnPrevious;
     Spinner spinner;
     Button addToCart;
     int totalCount = 1, totalPrice;
@@ -45,7 +47,6 @@ public class DetailProductActivity extends AppCompatActivity {
 
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
-
         name = findViewById(R.id.name_detail);
         id = findViewById(R.id.id_detail);
         price = findViewById(R.id.price_detail);
@@ -59,6 +60,7 @@ public class DetailProductActivity extends AppCompatActivity {
         spinner = findViewById(R.id.size_detail);
         addToCart = findViewById(R.id.add_to_card_detail);
         cart = findViewById(R.id.cart_detail);
+        returnPrevious = findViewById(R.id.return_previous_detail);
 
         //Hiển thị dropdown size
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(DetailProductActivity.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.sizes));
@@ -87,10 +89,16 @@ public class DetailProductActivity extends AppCompatActivity {
         addItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(totalCount < 10){
-                    totalCount++;
-                    countItem.setText(String.valueOf(totalCount));
-                    totalPrice = Integer.parseInt(p.getPrice()) * totalCount;
+                FirebaseUser user = auth.getCurrentUser();
+                if(user != null){
+                    if(totalCount < 10){
+                        totalCount++;
+                        countItem.setText(String.valueOf(totalCount));
+                        totalPrice = Integer.parseInt(p.getPrice()) * totalCount;
+                    }
+                }
+                else{
+                    SwitchToLogin();
                 }
             }
         });
@@ -110,15 +118,32 @@ public class DetailProductActivity extends AppCompatActivity {
                 switchToCart();
             }
         });
+        returnPrevious.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
         //Cài đặt thêm vào giỏ hàng
         addToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addedToCart();
+                FirebaseUser user = auth.getCurrentUser();
+                if(user != null){
+                    addedToCart();
+                }
+                else{
+                    SwitchToLogin();
+                }
             }
         });
+    }
+
+    private void SwitchToLogin() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 
     private void switchToCart() {

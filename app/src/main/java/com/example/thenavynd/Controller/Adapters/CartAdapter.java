@@ -1,10 +1,6 @@
-package com.example.thenavynd.Adapters;
+package com.example.thenavynd.Controller.Adapters;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,15 +14,12 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.thenavynd.Models.Carts;
-import com.example.thenavynd.Models.Products;
 import com.example.thenavynd.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.io.InputStream;
-import java.net.URL;
 import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder> {
@@ -82,13 +75,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             public void onClick(View v) {
                 db.collection("CurrentUser").document(auth.getCurrentUser().getUid())
                         .collection("AddToCart")
-                        .document(cartsList.get(position).getDocumentId())
+                        .document(cart.getDocumentId())
                         .delete()
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if(task.isSuccessful()){
-                                    cartsList.remove(cartsList.get(position));
+                                    cartsList.remove(cart);
                                     notifyDataSetChanged();
                                     Toast.makeText(context, "Item deleted !", Toast.LENGTH_SHORT).show();
                                 }
@@ -100,6 +93,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             }
         });
     }
+
 
     @Override
     public int getItemCount() {

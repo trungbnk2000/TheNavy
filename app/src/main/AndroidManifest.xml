@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.thenavynd">
+    package="com.example.thenavynd" >
 
     <application
         android:allowBackup="true"
@@ -8,28 +8,32 @@
         android:label="The Navy"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TheNavyND">
+        android:theme="@style/Theme.TheNavyND" >
         <activity
-            android:name=".Activities.OrderActivity"
+            android:name=".Controller.Activities.OrderHistoryActivity"
             android:exported="true" />
         <activity
-            android:name=".Activities.CartActivity"
+            android:name=".Controller.Activities.OrderActivity"
             android:exported="true" />
         <activity
-            android:name=".Activities.DetailProductActivity"
+            android:name=".Controller.Activities.CartActivity"
             android:exported="true" />
         <activity
-            android:name=".Activities.IntroActivity"
+            android:name=".Controller.Activities.DetailProductActivity"
             android:exported="true" />
         <activity
-            android:name=".Activities.LoginActivity"
+            android:name=".Controller.Activities.SignUpActivity"
             android:exported="true" />
         <activity
-            android:name=".Activities.MainActivity"
+            android:name=".Controller.Activities.LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".Activities.SignUpActivity"
-            android:exported="true">
+            android:name=".Controller.Activities.MainActivity"
+            android:windowSoftInputMode="adjustNothing"
+            android:exported="true" />
+        <activity
+            android:name=".Controller.Activities.IntroActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
