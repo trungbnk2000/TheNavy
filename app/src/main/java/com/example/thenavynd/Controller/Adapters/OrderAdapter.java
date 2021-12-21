@@ -42,10 +42,11 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
             return;
         }
         //Đổ dữ liệu ra adapter
+        int totalPrice = Integer.parseInt(cart.getProductPrice()) * Integer.parseInt(cart.getProductCount());
         holder.name.setText(cart.getProductName());
         holder.date.setText("Ngày đặt : " + cart.getCurrentDate());
         holder.count.setText("Số lượng : " + cart.getProductCount());
-        holder.price.setText(cart.getProductPrice() + " VNĐ");
+        holder.price.setText(totalPrice + " VNĐ");
 
         if(cart.getProductImage() != null){
             new ProductAdapter.DownLoadImageTask(holder.img).execute(cart.getProductImage());

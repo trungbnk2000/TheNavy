@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.thenavynd.Controller.Activities.CartActivity;
 import com.example.thenavynd.Models.Carts;
 import com.example.thenavynd.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -82,7 +83,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                             public void onComplete(@NonNull Task<Void> task) {
                                 if(task.isSuccessful()){
                                     cartsList.remove(cart);
-                                    notifyDataSetChanged();
+                                    //notifyDataSetChanged();
+                                    reload();
                                     Toast.makeText(context, "Item deleted !", Toast.LENGTH_SHORT).show();
                                 }
                                 else{
@@ -92,6 +94,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                         });
             }
         });
+    }
+
+    private void reload() {
+        Intent intent = new Intent(context, CartActivity.class);
+        context.startActivity(intent);
     }
 
 
